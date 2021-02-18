@@ -1,0 +1,24 @@
+{
+  "name": "sequelize-apartments-labalong",
+  "version": "1.0.0",
+  "description": "We are going to do some more SQL apartment **CRUD** again, but this time, we are doing it *sequelize* style!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SEI-SEA-1-25/sequelize-apartments-labalong.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SEI-SEA-1-25/sequelize-apartments-labalong/issues"
+  },
+  "homepage": "https://github.com/SEI-SEA-1-25/sequelize-apartments-labalong#readme",
+  "dependencies": {
+    "pg": "^8.5.1",
+    "sequelize": "^6.5.0"
+  }
+}
