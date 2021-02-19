@@ -1,7 +1,7 @@
 /**
  * a space for your code along notes 👾
  */
-const banana = require('./models')
+const db = require('./models')
 /*
 owners:
 sequelize model:generate --name=owner --attributes name:text,age:integer
@@ -43,19 +43,19 @@ async function creating() {
     // console.log(foundProperties)
 
     // new owner to create
-    const newOwner = {
-      name: 'Jack',
-      age: 70,
-    }
+    // const newOwner = {
+    //   name: 'Jack',
+    //   age: 70,
+    // }
 
-    // create out owner
-    const createdOwner = await db.owner.create(newOwner)
+    // // create out owner
+    // const createdOwner = await db.owner.create(newOwner)
 
-    // use the created owner's own method to add a property
-    await createdOwner.createProperty({
-      name: 'New Apartments',
-      units: 45
-    })
+    // // use the created owner's own method to add a property
+    // await createdOwner.createProperty({
+    //   name: 'New Apartments',
+    //   units: 45
+    // })
 
   // create with associations and eager loading
   const newOwner = {
@@ -83,7 +83,7 @@ async function creating() {
   }
 }
 
-// creating()
+creating()
 
 // READ
 async function reading() {
