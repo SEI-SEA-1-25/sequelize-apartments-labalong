@@ -57,7 +57,7 @@ async function creating() {
       units: 45
     })
 
-      // create with associations and eager loading
+  // create with associations and eager loading
   const newOwner = {
     name: 'The Hulk',
     age: '70',
@@ -67,11 +67,9 @@ async function creating() {
     }]
   }
   
-  // need to include the properties model to create this way
-  const createOptions = { include: [db.property] }
-
-  // create an owner with propers all at once!
-  const createdOwner = await db.owner.create(newOwner, createOptions)
+  // bug: create() needs to know about the property model from the include
+  // like when you read an owner and all thier properties
+  const createdOwner = await db.owner.create(newOwner, { include: [db.property] })
   
   // check to see if the property was added when the new owner was created:
   const propCheck = await createdOwner.getProperties()
