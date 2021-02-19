@@ -1,7 +1,7 @@
 /**
  * a space for your code along notes 👾
  */
-const db = require('./models')
+const banana = require('./models')
 /*
 owners:
 sequelize model:generate --name=owner --attributes name:text,age:integer
@@ -10,6 +10,7 @@ sequelize model:generate --name=property --attributes ownerId:integer,name:text,
 */
 
 // CREATE
+
 async function creating() {
   try {
     // simple create 
