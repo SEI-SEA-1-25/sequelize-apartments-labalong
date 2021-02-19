@@ -50,6 +50,21 @@ async function creating() {
     console.log(`owner ${owner.name} owns property ${property.name}!`)
   })
 
+  // new owner to create
+  const newOwner = {
+    name: 'Jack',
+    age: 70,
+  }
+
+  // create out owner
+  const createdOwner = await db.owner.create(newOwner)
+
+  // use the created owner's own method to add a property
+  await createdOwner.createProperty({
+    name: 'New Apartments',
+    units: 45
+  })
+  
   // create with associations and eager loading
   const newOwner = {
     name: 'The Hulk',
