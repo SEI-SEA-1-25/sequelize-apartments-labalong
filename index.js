@@ -50,27 +50,34 @@ async function creating() {
     console.log(`owner ${owner.name} owns property ${property.name}!`)
   })
 
-  // create with associations
+  // create with associations and eager loading
   const newOwner = {
-    name: 'Siobhan',
-    age: '55',
+    name: 'The Hulk',
+    age: '70',
     properties: [{
-      name: 'Parkview Point',
-      units: 50
-    }, {
-      name: 'Fair Creek',
-      units: 35
+      name: 'Some Apartments',
+      units: 45
     }]
   }
-  const createdOwner = await db.owner.create(newOwner)
-  console.log(createdOwner)
+  
+  // need to include the properties model to create this way
+  const createOptions = { include: [db.property] }
+
+  // create an owner with propers all at once!
+  const createdOwner = await db.owner.create(newOwner, createOptions)
+  
+  // check to see if the property was added when the new owner was created:
+  const propCheck = await createdOwner.getProperties()
+  propCheck.forEach(property => {
+    console.log(`owner ${createdOwner.name} owns property ${property.name}!`)
+  })
 
   } catch (error) {
     console.log(error)
   }
 }
 
-// creating()
+creating()
 
 // READ
 // findAll()
@@ -142,7 +149,7 @@ async function updating() {
   }
 }
 
-updating()
+// updating()
 
 // DESTROY
 
