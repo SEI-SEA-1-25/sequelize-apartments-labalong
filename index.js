@@ -42,7 +42,7 @@ async function creating() {
     const foundProperties = await owner.getProperties()
     // console.log(foundProperties)
 
-    // new owner with properties included
+    // new owner to create
     const newOwner = {
       name: 'Jack',
       age: 70,
@@ -51,6 +51,7 @@ async function creating() {
     // create out owner
     const createdOwner = await db.owner.create(newOwner)
 
+    // use the created owner's own method to add a property
     await createdOwner.createProperty({
       name: 'New Apartments',
       units: 45
